@@ -3,7 +3,7 @@
 
 
 
-AssetManager::AssetManager(sf::Sprite sprite)
+AssetManager::AssetManager()
 {
 }
 

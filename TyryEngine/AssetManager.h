@@ -4,7 +4,7 @@
 class AssetManager
 {
 public:
-	AssetManager(sf::Sprite sprite);
+	AssetManager();
 	~AssetManager();
 };
 

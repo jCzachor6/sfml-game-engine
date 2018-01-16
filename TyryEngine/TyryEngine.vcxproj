@@ -20,9 +20,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Error.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Error.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameStateManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="State.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
