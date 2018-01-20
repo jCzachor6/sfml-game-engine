@@ -5,5 +5,5 @@
 
 int main() {
 	Game game("", 800, 600);
-	game.Run(StatePtr(new SplashState()));
+	game.Run(StatePtr(new SplashState(game.getGsmPtr())));
 }

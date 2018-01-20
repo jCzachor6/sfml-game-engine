@@ -21,4 +21,3 @@ private:
 	bool isAdding;
 	bool isReplacing;
 };
-

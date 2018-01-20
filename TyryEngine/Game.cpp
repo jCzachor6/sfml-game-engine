@@ -3,14 +3,20 @@
 
 Game::Game(std::string name, int screenWidth, int screenHeight, long gameDetails)
 {
+	gsmPtr = std::make_shared<GameStateManager>();
 	window = new sf::RenderWindow(sf::VideoMode(screenWidth, screenHeight), name, sf::Style::Default);
 	window->setFramerateLimit(60);
 }
 
 void Game::Run(StatePtr state)
 {
-	gsm.AddState(std::move(state));
+	gsmPtr->AddState(std::move(state));
 	Loop();
+}
+
+GameStateManagerPtr & Game::getGsmPtr()
+{
+	return this->gsmPtr;
 }
 
 Game::~Game()
@@ -21,12 +27,12 @@ Game::~Game()
 void Game::Loop()
 {
 	while (window->isOpen()) {
-		gsm.ProcessChanges();
-		gsm.CurrentState()->HandleEvents();
-		gsm.CurrentState()->Update(1.0f);
+		gsmPtr->ProcessChanges();
+		gsmPtr->CurrentState()->HandleEvents();
+		gsmPtr->CurrentState()->Update(1.0f);
 
 		window->clear();
-		gsm.CurrentState()->Render(window);
+		gsmPtr->CurrentState()->Render(window);
 		window->display();
 	}
 }

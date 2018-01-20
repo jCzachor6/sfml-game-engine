@@ -1,8 +1,9 @@
 #include "SplashState.h"
 
 
-SplashState::SplashState()
+SplashState::SplashState(GameStateManagerPtr gsm)
 {
+	this->gsmPtr = gsm;
 	assetManager->LoadAllFromFile("SplashAssets.tea");
 }
 

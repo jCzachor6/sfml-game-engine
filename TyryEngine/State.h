@@ -18,5 +18,4 @@ public:
 protected:
 	std::unique_ptr<AssetManager> assetManager;
 private:
-	
 };

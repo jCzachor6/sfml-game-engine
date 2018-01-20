@@ -4,12 +4,13 @@
 #include <TyryEngine\GameAgent.h>
 #include "tileTest.h"
 #include <list>
+#include <TyryEngine\Game.h>
 
 typedef std::unique_ptr<GameAgent> agent;
 class SplashState : public State
 {
 public:
-	SplashState();
+	SplashState(GameStateManagerPtr gsm);
 	~SplashState();
 
 	void Init();
@@ -23,5 +24,6 @@ public:
 	void Render(sf::RenderWindow *window);
 private:
 	std::list<agent> gameAgentList;
+	GameStateManagerPtr gsmPtr;
 };
 
