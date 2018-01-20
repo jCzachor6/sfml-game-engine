@@ -24,8 +24,8 @@ void Game::Loop()
 		gsm.ProcessChanges();
 		gsm.CurrentState()->HandleEvents();
 		gsm.CurrentState()->Update(1.0f);
+
 		window->clear();
-		gsm.CurrentState()->drawAgents(window);
 		gsm.CurrentState()->Render(window);
 		window->display();
 	}

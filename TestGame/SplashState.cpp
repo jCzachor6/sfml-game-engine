@@ -25,6 +25,7 @@ void SplashState::Init()
 
 void SplashState::Cleanup()
 {
+	gameAgentList.clear();
 }
 
 void SplashState::OnPause()
@@ -45,4 +46,7 @@ void SplashState::Update(float deltaTime)
 
 void SplashState::Render(sf::RenderWindow *window)
 {
+	for (auto &i : gameAgentList) {
+		i->draw(window);
+	}
 }
