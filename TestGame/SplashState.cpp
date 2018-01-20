@@ -13,6 +13,14 @@ SplashState::~SplashState()
 
 void SplashState::Init()
 {
+	gameAgentList.push_back(agent(
+		new tileTest(assetManager->GetTexture("circle.png"), sf::Vector2f(100, 100))));
+	gameAgentList.push_back(agent(
+		new tileTest(assetManager->GetTexture("cross.png"), sf::Vector2f(150, 150))));
+	gameAgentList.push_back(agent(
+		new tileTest(assetManager->GetTexture("empty.png"), sf::Vector2f(200, 200))));
+	gameAgentList.push_back(agent(
+		new tileTest(assetManager->GetTexture("selected.png"), sf::Vector2f(250, 250))));
 }
 
 void SplashState::Cleanup()

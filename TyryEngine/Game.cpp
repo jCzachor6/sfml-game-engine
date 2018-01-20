@@ -4,6 +4,7 @@
 Game::Game(std::string name, int screenWidth, int screenHeight, long gameDetails)
 {
 	window = new sf::RenderWindow(sf::VideoMode(screenWidth, screenHeight), name, sf::Style::Default);
+	window->setFramerateLimit(60);
 }
 
 void Game::Run(StatePtr state)
@@ -24,6 +25,7 @@ void Game::Loop()
 		gsm.CurrentState()->HandleEvents();
 		gsm.CurrentState()->Update(1.0f);
 		window->clear();
+		gsm.CurrentState()->drawAgents(window);
 		gsm.CurrentState()->Render(window);
 		window->display();
 	}

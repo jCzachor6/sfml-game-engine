@@ -128,9 +128,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SplashState.cpp" />
+    <ClCompile Include="tileTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SplashState.h" />
+    <ClInclude Include="tileTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="SplashAssets.tea" />

@@ -1,6 +1,8 @@
 #pragma once
 #include <TyryEngine\State.h>
 #include <SFML\Window.hpp>
+#include <TyryEngine\GameAgent.h>
+#include "tileTest.h"
 
 class SplashState : public State
 {
@@ -17,8 +19,6 @@ public:
 	void HandleEvents();
 	void Update(float deltaTime);
 	void Render(sf::RenderWindow *window);
-
 private:
-
 };
 
