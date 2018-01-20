@@ -1,12 +1,12 @@
 #pragma once
 #include <TyryEngine\State.h>
 #include <SFML\Window.hpp>
-#include <TyryEngine\GameAgent.h>
+#include <TyryEngine\StaticAgent.h>
 #include "tileTest.h"
 #include <list>
 #include <TyryEngine\Game.h>
 
-typedef std::unique_ptr<GameAgent> agent;
+typedef std::unique_ptr<StaticAgent> agent;
 class SplashState : public State
 {
 public:

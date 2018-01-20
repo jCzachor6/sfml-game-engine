@@ -1,8 +1,8 @@
 #pragma once
-#include <TyryEngine\GameAgent.h>
+#include <TyryEngine\StaticAgent.h>
 #include <SFML\Graphics.hpp>
 
-class tileTest : public GameAgent
+class tileTest : public StaticAgent
 {
 public:
 	tileTest(sf::Texture &texture, sf::Vector2f pos);
