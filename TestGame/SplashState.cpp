@@ -1,14 +1,14 @@
 #include "SplashState.h"
 
 
-SplashState::SplashState(GameStateManager * gsm, sf::RenderWindow * window)
+SplashState::SplashState()
 {
-	this->gsm = gsm;
-	this->window = window;
+	assetManager->LoadAllFromFile("SplashAssets.txt");
 }
 
 SplashState::~SplashState()
 {
+	assetManager->RemoveAll();
 }
 
 void SplashState::Init()
@@ -31,10 +31,10 @@ void SplashState::HandleEvents()
 {
 }
 
-void SplashState::Update()
+void SplashState::Update(float deltaTime)
 {
 }
 
-void SplashState::Render()
+void SplashState::Render(sf::RenderWindow *window)
 {
 }

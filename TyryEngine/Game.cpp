@@ -22,7 +22,9 @@ void Game::Loop()
 	while (window->isOpen()) {
 		gsm.ProcessChanges();
 		gsm.CurrentState()->HandleEvents();
-		gsm.CurrentState()->Update();
-		gsm.CurrentState()->Render();
+		gsm.CurrentState()->Update(1.0f);
+		window->clear();
+		gsm.CurrentState()->Render(window);
+		window->display();
 	}
 }

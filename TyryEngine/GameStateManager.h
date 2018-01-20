@@ -3,6 +3,7 @@
 #include <memory>
 #include "State.h"
 
+
 typedef std::unique_ptr<State> StatePtr;
 class GameStateManager
 {

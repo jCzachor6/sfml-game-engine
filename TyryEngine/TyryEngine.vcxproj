@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="Error.h" />
+    <ClInclude Include="teError.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="InputManager.h" />
@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="Error.cpp" />
+    <ClCompile Include="teError.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="InputManager.cpp" />

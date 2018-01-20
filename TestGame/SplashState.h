@@ -1,12 +1,11 @@
 #pragma once
 #include <TyryEngine\State.h>
-#include <TyryEngine\GameStateManager.h>
 #include <SFML\Window.hpp>
 
 class SplashState : public State
 {
 public:
-	SplashState(GameStateManager *gsm, sf::RenderWindow *window);
+	SplashState();
 	~SplashState();
 
 	void Init();
@@ -16,11 +15,10 @@ public:
 	void OnResume();
 
 	void HandleEvents();
-	void Update();
-	void Render();
+	void Update(float deltaTime);
+	void Render(sf::RenderWindow *window);
 
 private:
-	GameStateManager *gsm;
-	sf::RenderWindow *window;
+
 };
 

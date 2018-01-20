@@ -2,7 +2,6 @@
 #include <string>
 #include <memory>
 #include "GameStateManager.h"
-#include "State.h"
 #include <SFML\Window.hpp>
 
 
