@@ -28,7 +28,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SplashAssets.txt">
+    <Text Include="SplashAssets.tea">
       <Filter>Pliki nagłówkowe</Filter>
     </Text>
   </ItemGroup>

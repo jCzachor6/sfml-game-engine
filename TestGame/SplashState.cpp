@@ -3,7 +3,7 @@
 
 SplashState::SplashState()
 {
-	assetManager->LoadAllFromFile("SplashAssets.txt");
+	assetManager->LoadAllFromFile("SplashAssets.tea");
 }
 
 SplashState::~SplashState()
