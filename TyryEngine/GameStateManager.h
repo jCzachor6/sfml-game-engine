@@ -12,7 +12,6 @@ typedef std::unique_ptr<State> StatePtr;
 class GameStateManager
 {
 public:
-	GameStateManager();
 	void AddState(StatePtr state);
 	void ReplaceState(StatePtr state);
 	void DeleteState();
@@ -27,11 +26,5 @@ private:
 	};
 
 	std::stack<StatePtr> stateStack;
-	std::queue<tmpState> statesToBeAdded;
-	StatePtr stateToBeAdded;
-	bool isDeleting;
-	bool isAdding;
-	bool isReplacing;
-
-	
+	std::queue<tmpState> statesToBeAdded;	
 };

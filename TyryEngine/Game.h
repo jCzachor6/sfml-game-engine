@@ -4,8 +4,10 @@
 #include "GameStateManager.h"
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
+#include "State.h"
 
 typedef std::shared_ptr<GameStateManager> GameStateManagerPtr;
+
 class Game
 {
 public:

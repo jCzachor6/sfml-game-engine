@@ -2,13 +2,6 @@
 
 
 
-GameStateManager::GameStateManager()
-{
-	this->isDeleting = false;
-	this->isAdding = false;
-	this->isReplacing = false;
-}
-
 void GameStateManager::AddState(StatePtr state)
 {
 	statesToBeAdded.push(tmpState{

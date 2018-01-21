@@ -1,11 +1,12 @@
 #include "Game.h"
 
-
+long State::idCounter = 0l;
 Game::Game(std::string name, int screenWidth, int screenHeight, long gameDetails)
 {
 	gsmPtr = std::make_shared<GameStateManager>();
 	window = new sf::RenderWindow(sf::VideoMode(screenWidth, screenHeight), name, sf::Style::Default);
 	window->setFramerateLimit(60);
+
 }
 
 void Game::Run(StatePtr state)
