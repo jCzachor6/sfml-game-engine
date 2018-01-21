@@ -11,47 +11,63 @@ GameStateManager::GameStateManager()
 
 void GameStateManager::AddState(StatePtr state)
 {
-	this->isAdding = true;
-	this->isReplacing = false;
-	this->stateToBeAdded = std::move(state);
+	statesToBeAdded.push(tmpState{
+		false,
+		true,
+		false,
+		std::move(state)
+		});
 }
 
 void GameStateManager::ReplaceState(StatePtr state)
 {
-	this->isAdding = true;
-	this->isReplacing = true;
-	this->stateToBeAdded = std::move(state);
+	statesToBeAdded.push(tmpState{
+		false,
+		true,
+		true,
+		std::move(state)
+		});
 }
 
 void GameStateManager::DeleteState()
 {
-	this->isDeleting = true;
+	statesToBeAdded.push(tmpState{
+		true,
+		false,
+		false,
+		nullptr
+		});
 }
 
 void GameStateManager::ProcessChanges()
 {
-	if (this->isDeleting && !this->stateStack.empty()) {
-		this->stateStack.top()->Cleanup();
-		this->stateStack.pop();
-		if (!this->stateStack.empty()) {
-			this->stateStack.top()->OnResume();
-		}
-		this->isDeleting = false;
-	}
-	if (this->isAdding) {
-		if (!this->stateStack.empty()) {
-			if (this->isReplacing) {
-				this->stateStack.top()->Cleanup();
-				this->stateStack.pop();
-				this->isReplacing = false;
+	while (!statesToBeAdded.empty()) {
+
+		if (statesToBeAdded.front().isDeleting
+			&& !this->stateStack.empty()) 
+		{
+			this->stateStack.top()->Cleanup();
+			this->stateStack.pop();
+			if (!this->stateStack.empty()) {
+				this->stateStack.top()->OnResume();
 			}
-			else {
-				this->stateStack.top()->OnPause();
-			}
+			statesToBeAdded.pop();
 		}
-		this->stateStack.push(std::move(this->stateToBeAdded));
-		this->stateStack.top()->Init();
-		this->isAdding = false;
+
+		if (statesToBeAdded.front().isAdding) {
+			if (!this->stateStack.empty()) {
+				if (statesToBeAdded.front().isReplacing) {
+					this->stateStack.top()->Cleanup();
+					this->stateStack.pop();
+				}else {
+					this->stateStack.top()->OnPause();
+				}
+			}
+			this->stateStack
+				.push(std::move(statesToBeAdded.front().stateToBeAdded));
+			this->stateStack.top()->Init();
+			statesToBeAdded.pop();
+		}
 	}
 }
 
