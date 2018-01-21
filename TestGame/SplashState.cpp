@@ -26,6 +26,15 @@ void SplashState::Init()
 	idText.setFillColor(sf::Color::White);
 	idText.setString(std::to_string(id));
 
+	this->stateIds = gsmPtr->getStateIds();
+	for (int i = 0; i < 10; i++) {
+		sf::Text text;
+		text.setFont(assetManager->GetFont("Pixeled.ttf"));
+		text.setCharacterSize(30);
+		text.setPosition(700, 50*i + 50);
+		text.setFillColor(sf::Color::White);
+		idTexts.push_back(text);
+	}
 }
 
 void SplashState::Cleanup()
@@ -50,9 +59,6 @@ void SplashState::HandleEvents(sf::Event *event)
 	if (event->type == sf::Event::KeyPressed) {
 		if (event->key.code == sf::Keyboard::A) {
 			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
-			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
-			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
-			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
 		}
 		if (event->key.code == sf::Keyboard::D) {
 			gsmPtr->DeleteState();
@@ -65,6 +71,12 @@ void SplashState::HandleEvents(sf::Event *event)
 
 void SplashState::Update(float deltaTime)
 {
+	for (int i = 0; i < stateIds->size(); i++) {
+		int val = stateIds->at(i);
+		if (i < 10) {
+			idTexts.at(i).setString(std::to_string(val));
+		}
+	}
 }
 
 void SplashState::Render(sf::RenderWindow *window)
@@ -72,5 +84,8 @@ void SplashState::Render(sf::RenderWindow *window)
 	window->draw(idText);
 	for (auto &i : gameAgentList) {
 		i->draw(window);
+	}
+	for (auto &i : idTexts) {
+		window->draw(i);
 	}
 }

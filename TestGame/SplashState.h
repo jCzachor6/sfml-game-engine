@@ -5,6 +5,7 @@
 #include "tileTest.h"
 #include <list>
 #include <TyryEngine\Game.h>
+#include <vector>
 
 typedef std::unique_ptr<StaticAgent> agent;
 class SplashState : public State
@@ -25,5 +26,7 @@ private:
 	std::list<agent> gameAgentList;
 	GameStateManagerPtr gsmPtr;
 	sf::Text idText;
+	std::vector<long> *stateIds;
+	std::vector<sf::Text> idTexts;
 };
 
