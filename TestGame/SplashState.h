@@ -19,7 +19,7 @@ public:
 	void OnPause();
 	void OnResume();
 
-	void HandleEvents();
+	void HandleEvents(sf::Event *event);
 	void Update(float deltaTime);
 	void Render(sf::RenderWindow *window);
 private:

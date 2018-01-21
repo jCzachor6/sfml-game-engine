@@ -28,7 +28,13 @@ void Game::Loop()
 {
 	while (window->isOpen()) {
 		gsmPtr->ProcessChanges();
-		gsmPtr->CurrentState()->HandleEvents();
+		sf::Event event;
+		while (window->pollEvent(event)) {
+			if (sf::Event::Closed == event.type) {
+				window->close();
+			}
+		}
+		gsmPtr->CurrentState()->HandleEvents(&event);
 		gsmPtr->CurrentState()->Update(1.0f);
 
 		window->clear();

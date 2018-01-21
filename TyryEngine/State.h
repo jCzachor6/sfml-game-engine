@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include <memory>
 
+
 class State
 {
 public:
@@ -12,7 +13,7 @@ public:
 	virtual void OnPause() {};
 	virtual void OnResume() {};
 
-	virtual void HandleEvents() = 0;
+	virtual void HandleEvents(sf::Event *event) = 0;
 	virtual void Update(float deltaTime) = 0;
 	virtual void Render(sf::RenderWindow *window) = 0;
 protected:
