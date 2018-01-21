@@ -27,8 +27,7 @@ void GameStateManager::DeleteState()
 	statesToBeAdded.push(tmpState{
 		true,
 		false,
-		false,
-		nullptr
+		false
 		});
 }
 
@@ -37,14 +36,11 @@ void GameStateManager::ProcessChanges()
 	while (!statesToBeAdded.empty()) {
 
 		if (statesToBeAdded.front().isDeleting
-			&& !this->stateStack.empty()) 
+			&& this->stateStack.size() > 1) 
 		{
 			this->stateStack.top()->Cleanup();
 			this->stateStack.pop();
-			if (!this->stateStack.empty()) {
-				this->stateStack.top()->OnResume();
-			}
-			statesToBeAdded.pop();
+			this->stateStack.top()->OnResume();
 		}
 
 		if (statesToBeAdded.front().isAdding) {
@@ -59,8 +55,8 @@ void GameStateManager::ProcessChanges()
 			this->stateStack
 				.push(std::move(statesToBeAdded.front().stateToBeAdded));
 			this->stateStack.top()->Init();
-			statesToBeAdded.pop();
 		}
+		statesToBeAdded.pop();
 	}
 }
 

@@ -24,5 +24,6 @@ public:
 private:
 	std::list<agent> gameAgentList;
 	GameStateManagerPtr gsmPtr;
+	sf::Text idText;
 };
 

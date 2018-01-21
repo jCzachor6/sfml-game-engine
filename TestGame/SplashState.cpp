@@ -19,6 +19,13 @@ void SplashState::Init()
 		new tileTest(assetManager->GetTexture("empty.png"), sf::Vector2f(200, 200))));
 	gameAgentList.push_back(agent(
 		new tileTest(assetManager->GetTexture("selected.png"), sf::Vector2f(250, 250))));
+
+	idText.setFont(assetManager->GetFont("Pixeled.ttf"));
+	idText.setCharacterSize(30);
+	idText.setPosition(300, 300);
+	idText.setFillColor(sf::Color::White);
+	idText.setString(std::to_string(id));
+
 }
 
 void SplashState::Cleanup()
@@ -44,6 +51,8 @@ void SplashState::HandleEvents(sf::Event *event)
 		if (event->key.code == sf::Keyboard::A) {
 			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
 			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
+			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
+			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
 		}
 		if (event->key.code == sf::Keyboard::D) {
 			gsmPtr->DeleteState();
@@ -60,6 +69,7 @@ void SplashState::Update(float deltaTime)
 
 void SplashState::Render(sf::RenderWindow *window)
 {
+	window->draw(idText);
 	for (auto &i : gameAgentList) {
 		i->draw(window);
 	}
