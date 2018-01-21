@@ -11,7 +11,6 @@ class SplashState : public State
 {
 public:
 	SplashState(GameStateManagerPtr gsm);
-	~SplashState();
 
 	void Init();
 	void Cleanup();

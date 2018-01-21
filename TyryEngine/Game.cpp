@@ -30,13 +30,12 @@ void Game::Loop()
 		gsmPtr->ProcessChanges();
 		sf::Event event;
 		while (window->pollEvent(event)) {
+			gsmPtr->CurrentState()->HandleEvents(&event);
 			if (sf::Event::Closed == event.type) {
 				window->close();
 			}
-		}
-		gsmPtr->CurrentState()->HandleEvents(&event);
+		}	
 		gsmPtr->CurrentState()->Update(1.0f);
-
 		window->clear();
 		gsmPtr->CurrentState()->Render(window);
 		window->display();

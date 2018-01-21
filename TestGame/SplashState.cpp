@@ -8,12 +8,6 @@ SplashState::SplashState(GameStateManagerPtr gsm)
 	std::cout << "On construct" << std::endl;
 }
 
-SplashState::~SplashState()
-{
-	assetManager->RemoveAll();
-	std::cout << "On desctruct" << std::endl;
-}
-
 void SplashState::Init()
 {
 	std::cout << "On init" << std::endl;
@@ -31,6 +25,7 @@ void SplashState::Cleanup()
 {
 	std::cout << "On cleanup" << std::endl;
 	gameAgentList.clear();
+	assetManager->RemoveAll();
 }
 
 void SplashState::OnPause()
@@ -45,7 +40,18 @@ void SplashState::OnResume()
 
 void SplashState::HandleEvents(sf::Event *event)
 {
-	
+	if (event->type == sf::Event::KeyPressed) {
+		if (event->key.code == sf::Keyboard::A) {
+			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
+			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
+		}
+		if (event->key.code == sf::Keyboard::D) {
+			gsmPtr->DeleteState();
+		}
+		if (event->key.code == sf::Keyboard::R) {
+			gsmPtr->ReplaceState(StatePtr(new SplashState(gsmPtr)));
+		}
+	}
 }
 
 void SplashState::Update(float deltaTime)

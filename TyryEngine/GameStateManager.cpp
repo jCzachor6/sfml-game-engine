@@ -12,13 +12,14 @@ GameStateManager::GameStateManager()
 void GameStateManager::AddState(StatePtr state)
 {
 	this->isAdding = true;
+	this->isReplacing = false;
 	this->stateToBeAdded = std::move(state);
 }
 
 void GameStateManager::ReplaceState(StatePtr state)
 {
 	this->isAdding = true;
-	this->isReplacing = isReplacing;
+	this->isReplacing = true;
 	this->stateToBeAdded = std::move(state);
 }
 
@@ -42,6 +43,7 @@ void GameStateManager::ProcessChanges()
 			if (this->isReplacing) {
 				this->stateStack.top()->Cleanup();
 				this->stateStack.pop();
+				this->isReplacing = false;
 			}
 			else {
 				this->stateStack.top()->OnPause();
