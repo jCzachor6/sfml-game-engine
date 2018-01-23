@@ -54,6 +54,7 @@ void GameStateManager::ProcessChanges()
 					this->stateStack.top()->OnPause();
 				}
 			}
+			statesToBeAdded.front().stateToBeAdded->gsmPtr = this;
 			this->stateStack
 				.push(std::move(statesToBeAdded.front().stateToBeAdded));
 			this->stateStack.top()->Init();

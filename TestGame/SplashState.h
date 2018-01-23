@@ -11,7 +11,7 @@ typedef std::unique_ptr<StaticAgent> agent;
 class SplashState : public State
 {
 public:
-	SplashState(GameStateManagerPtr gsm);
+	SplashState();
 
 	void Init();
 	void Cleanup();
@@ -24,7 +24,6 @@ public:
 	void Render(sf::RenderWindow *window);
 private:
 	std::list<agent> gameAgentList;
-	GameStateManagerPtr gsmPtr;
 	sf::Text idText;
 	std::vector<long> *stateIds;
 	std::vector<sf::Text> idTexts;

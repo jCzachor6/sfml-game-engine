@@ -5,11 +5,8 @@
 #include <memory>
 #include "State.h"
 
-
+class State;
 typedef std::unique_ptr<State> StatePtr;
-
-
-
 class GameStateManager
 {
 public:

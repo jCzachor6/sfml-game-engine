@@ -1,9 +1,8 @@
 #include "SplashState.h"
 
 
-SplashState::SplashState(GameStateManagerPtr gsm)
+SplashState::SplashState()
 {
-	this->gsmPtr = gsm;
 	assetManager->LoadAllFromFile("SplashAssets.tea");
 	std::cout << "On construct" << std::endl;
 }
@@ -26,7 +25,7 @@ void SplashState::Init()
 	idText.setFillColor(sf::Color::White);
 	idText.setString(std::to_string(id));
 
-	this->stateIds = gsmPtr->getStateIds();
+	this->stateIds = getGameStateManager().getStateIds();
 	for (int i = 0; i < 10; i++) {
 		sf::Text text;
 		text.setFont(assetManager->GetFont("Pixeled.ttf"));
@@ -58,13 +57,13 @@ void SplashState::HandleEvents(sf::Event *event)
 {
 	if (event->type == sf::Event::KeyPressed) {
 		if (event->key.code == sf::Keyboard::A) {
-			gsmPtr->AddState(StatePtr(new SplashState(gsmPtr)));
+			getGameStateManager().AddState(StatePtr(new SplashState()));
 		}
 		if (event->key.code == sf::Keyboard::D) {
-			gsmPtr->DeleteState();
+			getGameStateManager().DeleteState();
 		}
 		if (event->key.code == sf::Keyboard::R) {
-			gsmPtr->ReplaceState(StatePtr(new SplashState(gsmPtr)));
+			getGameStateManager().ReplaceState(StatePtr(new SplashState()));
 		}
 	}
 }

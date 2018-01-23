@@ -12,4 +12,10 @@ long State::getID()
 	return this->id;
 }
 
+GameStateManager & State::getGameStateManager()
+{
+	return *this->gsmPtr;
+}
+
+
 

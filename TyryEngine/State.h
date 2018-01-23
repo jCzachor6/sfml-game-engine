@@ -1,11 +1,13 @@
 #pragma once
 #include "AssetManager.h"
+#include "GameStateManager.h"
 #include <memory>
 
-
+class GameStateManager;
 class State
 {
 public:
+	friend GameStateManager;
 	State();
 	virtual void Init() = 0;
 	virtual void Cleanup() = 0;
@@ -21,5 +23,7 @@ public:
 protected:
 	const long id;
 	std::unique_ptr<AssetManager> assetManager;
+	GameStateManager &getGameStateManager();
 private:
+	GameStateManager *gsmPtr;
 };

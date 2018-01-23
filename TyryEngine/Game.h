@@ -6,19 +6,17 @@
 #include <SFML\Graphics.hpp>
 #include "State.h"
 
-typedef std::shared_ptr<GameStateManager> GameStateManagerPtr;
-
 class Game
 {
 public:
 	Game(std::string name, int screenWidth, int screenHeight, long gameDetails = 0);
 	void Run(StatePtr state);
-	GameStateManagerPtr &getGsmPtr();
+	GameStateManager &getGameStateManager();
 	~Game();
 	
 private:
 	void Loop();
-	GameStateManagerPtr gsmPtr;
+	GameStateManager gsm;
 	sf::RenderWindow *window;
 };
 
