@@ -2,6 +2,12 @@
 
 
 
+GameStateManager::GameStateManager()
+{
+	this->isPuttingOnTop = false;
+	this->stateToPutOnTop = -1;
+}
+
 void GameStateManager::AddState(StatePtr state)
 {
 	statesToBeAdded.push(tmpState{
@@ -33,6 +39,27 @@ void GameStateManager::DeleteState()
 
 void GameStateManager::ProcessChanges()
 {
+	if (isPuttingOnTop) {
+		std::stack<StatePtr> tmpStack;
+		while (stateStack.top()->getID() != stateToPutOnTop) {
+			tmpStack.push(std::move(stateStack.top()));
+			stateStack.pop();
+		}
+		statesToBeAdded.push(tmpState{
+			false,
+			true,
+			false,
+			std::move(stateStack.top())
+			});
+		stateStack.pop();
+		while (!tmpStack.empty()) {
+			stateStack.push(std::move(tmpStack.top()));
+			tmpStack.pop();
+		}
+		isPuttingOnTop = false;
+		stateToPutOnTop = -1;
+	}
+
 	while (!statesToBeAdded.empty()) {
 
 		if (statesToBeAdded.front().isDeleting
@@ -66,7 +93,15 @@ void GameStateManager::ProcessChanges()
 
 void GameStateManager::PutOnTop(long id)
 {
-	//todo
+	if(stateStack.top()->getID() != id && isPuttingOnTop == false){
+		for (const auto &i : stateIds) {
+			if (i == id) {
+				this->isPuttingOnTop = true;
+				this->stateToPutOnTop = id;
+				removeIdFromStateIds(id);
+			}
+		}
+	}
 }
 
 StatePtr & GameStateManager::CurrentState()
@@ -78,8 +113,7 @@ void GameStateManager::removeIdFromStateIds(long id)
 {
 	for (int i = 0; i < stateIds.size(); i++) {
 		if (stateIds.at(i) == id) {
-			stateIds.at(i) = stateIds.at(stateIds.size()-1);
-			stateIds.pop_back();
+			stateIds.erase(stateIds.begin() + i);
 		}
 	}
 }

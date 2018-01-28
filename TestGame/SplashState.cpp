@@ -65,6 +65,30 @@ void SplashState::HandleEvents(sf::Event *event)
 		if (event->key.code == sf::Keyboard::R) {
 			getGameStateManager().ReplaceState(StatePtr(new SplashState()));
 		}
+		if (event->key.code == sf::Keyboard::Num1) {
+			getGameStateManager().PutOnTop(1);
+		}
+		if (event->key.code == sf::Keyboard::Num2) {
+			getGameStateManager().PutOnTop(2);
+		}
+		if (event->key.code == sf::Keyboard::Num3) {
+			getGameStateManager().PutOnTop(3);
+		}
+		if (event->key.code == sf::Keyboard::Num4) {
+			getGameStateManager().PutOnTop(4);
+		}
+		if (event->key.code == sf::Keyboard::Num5) {
+			getGameStateManager().PutOnTop(5);
+		}
+		if (event->key.code == sf::Keyboard::Num6) {
+			getGameStateManager().PutOnTop(6);
+		}
+		if (event->key.code == sf::Keyboard::Num7) {
+			getGameStateManager().PutOnTop(7);
+		}
+		if (event->key.code == sf::Keyboard::Num8) {
+			getGameStateManager().PutOnTop(8);
+		}
 	}
 }
 
