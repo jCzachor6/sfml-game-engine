@@ -1,6 +1,11 @@
 #include "AssetManager.h"
 
 
+AssetManager::AssetManager()
+{
+	this->scale = 1.0f;
+}
+
 sf::Texture & AssetManager::GetTexture(std::string name)
 {
 	return this->textures.at(name);
@@ -11,7 +16,7 @@ sf::Font & AssetManager::GetFont(std::string name)
 	return this->fonts.at(name);
 }
 
-void AssetManager::LoadAllFromFile(std::string fileName)
+void AssetManager::LoadAssetsFromFile(std::string fileName)
 {
 	std::fstream assetFile;
 	assetFile.open(fileName, std::ios::in);
@@ -30,6 +35,11 @@ void AssetManager::LoadAllFromFile(std::string fileName)
 	}
 }
 
+void AssetManager::SetTextureScale(float scale)
+{
+	this->scale = scale;
+}
+
 void AssetManager::RemoveAll()
 {
 	textures.clear();
@@ -40,6 +50,7 @@ void AssetManager::LoadTexture(std::string name, std::string fileName)
 {
 	sf::Texture tex;
 	if (tex.loadFromFile(fileName)) {
+		//tex.setScale(scale);
 		this->textures[name] = tex;
 	}
 	else fatalError("Failed to load " + fileName);

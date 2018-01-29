@@ -3,13 +3,11 @@
 
 SplashState::SplashState()
 {
-	assetManager->LoadAllFromFile("SplashAssets.tea");
-	std::cout << "On construct" << std::endl;
+	assetManager->LoadAssetsFromFile("SplashAssets.tea");
 }
 
 void SplashState::Init()
 {
-	std::cout << "On init" << std::endl;
 	gameAgentList.push_back(agent(
 		new tileTest(assetManager->GetTexture("circle.png"), sf::Vector2f(100, 100))));
 	gameAgentList.push_back(agent(
@@ -38,19 +36,16 @@ void SplashState::Init()
 
 void SplashState::Cleanup()
 {
-	std::cout << "On cleanup" << std::endl;
 	gameAgentList.clear();
 	assetManager->RemoveAll();
 }
 
 void SplashState::OnPause()
 {
-	std::cout << "On pause" << std::endl;
 }
 
 void SplashState::OnResume()
 {
-	std::cout << "On resume" << std::endl;
 }
 
 void SplashState::HandleEvents(sf::Event *event)

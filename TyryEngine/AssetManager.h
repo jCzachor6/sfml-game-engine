@@ -8,10 +8,13 @@
 class AssetManager
 {
 public:
+	AssetManager();
+
 	sf::Texture &GetTexture(std::string name);
 	sf::Font &GetFont(std::string name);
 
-	void LoadAllFromFile(std::string filePath);
+	void LoadAssetsFromFile(std::string filePath);
+	void SetTextureScale(float scale);
 	void RemoveAll();
 private:
 	void LoadTexture(std::string name, std::string fileName);
@@ -21,5 +24,6 @@ private:
 	void LoadAsset(std::string ext, std::string name, std::string filePath);
 	std::map<std::string, sf::Texture> textures;
 	std::map<std::string, sf::Font> fonts;
+	float scale;
 };
 
