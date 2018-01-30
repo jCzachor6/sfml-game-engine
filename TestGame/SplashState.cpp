@@ -3,7 +3,7 @@
 
 SplashState::SplashState()
 {
-	assetManager->LoadAssetsFromFile("SplashAssets.tea");
+	assetManager->LoadAssetsFromFile("SplashStateAssets.te");
 }
 
 void SplashState::Init()

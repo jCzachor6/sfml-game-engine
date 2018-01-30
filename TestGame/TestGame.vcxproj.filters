@@ -34,8 +34,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SplashAssets.tea">
-      <Filter>Pliki nagłówkowe</Filter>
+    <Text Include="SplashStateAssets.te">
+      <Filter>Pliki zasobów</Filter>
     </Text>
   </ItemGroup>
 </Project>

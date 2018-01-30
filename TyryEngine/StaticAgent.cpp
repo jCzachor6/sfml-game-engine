@@ -1,5 +1,16 @@
 #include "StaticAgent.h"
 
+StaticAgent::StaticAgent()
+{
+}
+
+StaticAgent::StaticAgent(sf::Texture & texture, sf::Vector2f position)
+{
+	this->sprite.setTexture(texture);
+	this->position = position;
+	this->sprite.setPosition(position);
+}
+
 void StaticAgent::setTexture(sf::Texture & texture)
 {
 	this->sprite.setTexture(texture);

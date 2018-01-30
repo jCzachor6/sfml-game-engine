@@ -135,7 +135,7 @@
     <ClInclude Include="tileTest.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SplashAssets.tea" />
+    <Text Include="SplashStateAssets.te" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

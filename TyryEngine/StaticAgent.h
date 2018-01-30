@@ -5,6 +5,8 @@
 class StaticAgent
 {
 public:
+	StaticAgent();
+	StaticAgent(sf::Texture &texture, sf::Vector2f position);
 	virtual void draw(sf::RenderWindow *window);
 protected:
 	void setTexture(sf::Texture  &texture);
