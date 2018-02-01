@@ -18,5 +18,6 @@ private:
 	void Loop();
 	GameStateManager gsm;
 	sf::RenderWindow *window;
+
 };
 

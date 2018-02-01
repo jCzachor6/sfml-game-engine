@@ -2,6 +2,7 @@
 #include <TyryEngine\State.h>
 #include <memory>
 #include <TyryEngine\StaticAgent.h>
+#include <TyryEngine\Button.h>
 
 class MenuState : public State
 {
@@ -19,5 +20,8 @@ public:
 
 private:
 	StaticAgent *background;
+	Button *buttonAdd;
+	Button *buttonLoad;
+	Button *buttonDelete;
 };
 

@@ -45,6 +45,9 @@
     <ClInclude Include="DynamicAgent.h">
       <Filter>Pliki nagłówkowe\agent</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Pliki nagłówkowe\agent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp">
@@ -69,6 +72,9 @@
       <Filter>Pliki źródłowe\agent</Filter>
     </ClCompile>
     <ClCompile Include="DynamicAgent.cpp">
+      <Filter>Pliki źródłowe\agent</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
       <Filter>Pliki źródłowe\agent</Filter>
     </ClCompile>
   </ItemGroup>

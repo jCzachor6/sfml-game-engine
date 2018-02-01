@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="DynamicAgent.h" />
     <ClInclude Include="StaticAgent.h" />
     <ClInclude Include="teError.h" />
@@ -30,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="DynamicAgent.cpp" />
     <ClCompile Include="StaticAgent.cpp" />
     <ClCompile Include="teError.cpp" />

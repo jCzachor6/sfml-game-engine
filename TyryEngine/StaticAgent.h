@@ -14,6 +14,5 @@ protected:
 	sf::Sprite sprite;
 	sf::Vector2f position;
 private:
-
 };
 
