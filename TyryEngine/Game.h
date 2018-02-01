@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <memory>
+#include "InputManager.h"
 #include "GameStateManager.h"
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
@@ -17,7 +18,7 @@ public:
 private:
 	void Loop();
 	GameStateManager gsm;
+	InputManager im;
 	sf::RenderWindow *window;
-
 };
 

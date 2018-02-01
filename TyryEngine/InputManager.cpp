@@ -29,3 +29,8 @@ sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow & window)
 {
 	return sf::Mouse::getPosition(window);
 }
+
+void InputManager::SetMousePosition(sf::Vector2i *mousePos)
+{
+	this->mousePosition = *mousePos;
+}

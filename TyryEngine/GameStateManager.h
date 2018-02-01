@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include "State.h"
+#include "InputManager.h"
 
 class State;
 typedef std::unique_ptr<State> StatePtr;
@@ -18,6 +19,7 @@ public:
 	void PutOnTop(long id);
 	StatePtr &CurrentState();
 	std::vector<long> *getStateIds();
+	void setInputManager(InputManager *im);
 private:
 	struct tmpState {
 		bool isDeleting;
@@ -32,5 +34,5 @@ private:
 	std::queue<tmpState> statesToBeAdded;	
 	void removeIdFromStateIds(long id);
 	bool checkIfExists(long id);
-
+	InputManager *inputPtr;
 };

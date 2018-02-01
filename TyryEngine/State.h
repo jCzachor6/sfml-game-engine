@@ -1,6 +1,7 @@
 #pragma once
 #include "AssetManager.h"
 #include "GameStateManager.h"
+#include "InputManager.h"
 #include <memory>
 
 class GameStateManager;
@@ -24,6 +25,8 @@ protected:
 	const long id;
 	std::unique_ptr<AssetManager> assetManager;
 	GameStateManager &getGameStateManager();
+	InputManager &getInputManager();
 private:
 	GameStateManager *gsmPtr;
+	InputManager *inputPtr;
 };

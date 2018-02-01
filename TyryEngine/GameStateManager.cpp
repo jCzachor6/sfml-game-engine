@@ -6,6 +6,7 @@ GameStateManager::GameStateManager()
 {
 	this->isPuttingOnTop = false;
 	this->stateToPutOnTop = -1;
+	inputPtr = new InputManager();
 }
 
 void GameStateManager::AddState(StatePtr state)
@@ -82,6 +83,7 @@ void GameStateManager::ProcessChanges()
 				}
 			}
 			statesToBeAdded.front().stateToBeAdded->gsmPtr = this;
+			statesToBeAdded.front().stateToBeAdded->inputPtr = inputPtr;
 			this->stateStack
 				.push(std::move(statesToBeAdded.front().stateToBeAdded));
 			this->stateStack.top()->Init();
@@ -131,4 +133,9 @@ bool GameStateManager::checkIfExists(long id)
 std::vector<long>* GameStateManager::getStateIds()
 {
 	return &this->stateIds;
+}
+
+void GameStateManager::setInputManager(InputManager * im)
+{
+	this->inputPtr = im;
 }

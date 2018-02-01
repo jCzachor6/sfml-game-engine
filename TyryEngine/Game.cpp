@@ -9,6 +9,7 @@ Game::Game(std::string name, int screenWidth, int screenHeight, long gameDetails
 
 void Game::Run(StatePtr state)
 {
+	gsm.setInputManager(&im);
 	gsm.AddState(std::move(state));
 	Loop();
 }
@@ -27,6 +28,7 @@ void Game::Loop()
 {
 	while (window->isOpen()) {
 		gsm.ProcessChanges();
+		im.SetMousePosition(&sf::Mouse::getPosition(*window));
 		sf::Event event;
 		while (window->pollEvent(event)) {
 			gsm.CurrentState()->HandleEvents(&event);

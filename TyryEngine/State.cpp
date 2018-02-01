@@ -17,5 +17,10 @@ GameStateManager & State::getGameStateManager()
 	return *this->gsmPtr;
 }
 
+InputManager & State::getInputManager()
+{
+	return *this->inputPtr;
+}
+
 
 
