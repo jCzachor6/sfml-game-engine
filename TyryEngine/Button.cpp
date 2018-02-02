@@ -6,9 +6,9 @@ Button::Button(sf::Vector2f position, sf::Texture & texture)
 	this->onClick = defaultOnClick;
 }
 
-void Button::handleInput(sf::Event *event, sf::Vector2i mousePosition)
+void Button::handleInput(sf::Event *event, InputManager &im)
 {
-	if (input.IsSpritePressed(this->sprite, sf::Mouse::Button::Left, mousePosition, *event)) {
+	if (im.IsSpritePressed(this->sprite, sf::Mouse::Button::Left, *event)) {
 		this->onClick();
 	}
 }

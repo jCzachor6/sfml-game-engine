@@ -33,6 +33,9 @@ void MenuState::OnResume()
 
 void MenuState::HandleEvents(sf::Event * event)
 {
+	buttonAdd->handleInput(event, getInputManager());
+	buttonLoad->handleInput(event, getInputManager());
+	buttonDelete->handleInput(event, getInputManager());
 }
 
 void MenuState::Update(float deltaTime)

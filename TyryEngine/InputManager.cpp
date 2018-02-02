@@ -1,6 +1,6 @@
 #include "InputManager.h"
 
-bool InputManager::IsSpritePressed(sf::Sprite object, sf::Mouse::Button button, sf::Vector2i &mousePosition, sf::Event & ev)
+bool InputManager::IsSpritePressed(sf::Sprite object, sf::Mouse::Button button, sf::Event & ev)
 {
 	sf::IntRect tempRect(
 		object.getPosition().x,
@@ -15,7 +15,7 @@ bool InputManager::IsSpritePressed(sf::Sprite object, sf::Mouse::Button button, 
 	return false;
 }
 
-bool InputManager::IsMouseOnSprite(sf::Sprite object, sf::Vector2i &mousePosition)
+bool InputManager::IsMouseOnSprite(sf::Sprite object)
 {
 	sf::IntRect tempRect(
 		object.getPosition().x,
@@ -25,9 +25,9 @@ bool InputManager::IsMouseOnSprite(sf::Sprite object, sf::Vector2i &mousePositio
 	return tempRect.contains(mousePosition);
 }
 
-sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow & window)
+sf::Vector2i InputManager::GetMousePosition()
 {
-	return sf::Mouse::getPosition(window);
+	return this->mousePosition;
 }
 
 void InputManager::SetMousePosition(sf::Vector2i *mousePos)
