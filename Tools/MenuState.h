@@ -3,6 +3,7 @@
 #include <memory>
 #include <TyryEngine\StaticAgent.h>
 #include <TyryEngine\Button.h>
+#include <TyryEngine\TextSelector.h>
 
 class MenuState : public State
 {
@@ -23,5 +24,6 @@ private:
 	Button *buttonAdd;
 	Button *buttonLoad;
 	Button *buttonDelete;
+	TextSelector *textSelector;
 };
 

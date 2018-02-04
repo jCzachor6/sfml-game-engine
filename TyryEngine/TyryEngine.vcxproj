@@ -28,6 +28,7 @@
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="TextSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
@@ -39,6 +40,7 @@
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="TextSelector.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
